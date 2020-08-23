@@ -1,7 +1,7 @@
-package com.chody.d4.controller;
+package com.d4.postgresql.controller;
 
-import com.chody.d4.entities.School;
-import com.chody.d4.service.SchoolService;
+import com.d4.postgresql.entities.School;
+import com.d4.postgresql.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

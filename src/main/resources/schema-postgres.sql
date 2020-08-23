@@ -1,9 +1,5 @@
-DROP TABLE IF EXISTS reference;
-DROP TABLE IF EXISTS splice;
-DROP TABLE IF EXISTS users;
-
 DROP TABLE IF EXISTS schools;
-CREATE TABLE schools(id VARCHAR(255) NOT NULL, name VARCHAR(255), PRIMARY KEY (id));
+CREATE TABLE schools(id VARCHAR(255) NOT NULL, name VARCHAR(255), PRIMARY KEY (id, name));
 --DROP TABLE IF EXISTS reports;
 --CREATE TABLE reports(resource_id VARCHAR(255) NOT NULL, reason VARCHAR(50), description VARCHAR(50), submit_date timestamptz);
 --DROP TABLE IF EXISTS courses;

@@ -1,4 +1,4 @@
-package com.chody.d4;
+package com.d4.postgresql;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

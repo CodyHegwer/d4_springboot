@@ -1,7 +1,7 @@
-package com.chody.d4.service;
+package com.d4.postgresql.service;
 
-import com.chody.d4.entities.School;
-import com.chody.d4.repository.SchoolRepository;
+import com.d4.postgresql.entities.School;
+import com.d4.postgresql.repository.SchoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -19,6 +19,21 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Override
     public School createSchool(School school) {
+
+        // validation
+        if ( school.getName() == null || school.getName().isBlank() || school.getName().isEmpty() ) {
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "School must have a name");
+        }
+
+        // remove excess whitespace
+        school.setName(school.getName().trim());
+
+        // see if school exists with exact name
+        Optional<School> schoolOptional = schoolRepository.findSchoolByName(school.getName());
+        if (schoolOptional.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "School already exists");
+        }
+
         school.setId(UUID.randomUUID().toString());
         return schoolRepository.save(school);
     }

@@ -1,4 +1,4 @@
-package com.chody.d4.entities;
+package com.d4.postgresql.entities;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

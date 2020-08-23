@@ -1,6 +1,6 @@
-package com.chody.d4.service;
+package com.d4.postgresql.service;
 
-import com.chody.d4.entities.School;
+import com.d4.postgresql.entities.School;
 
 public interface SchoolService {
     School createSchool(School school);
