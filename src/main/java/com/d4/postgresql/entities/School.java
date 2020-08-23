@@ -1,9 +1,8 @@
 package com.d4.postgresql.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -23,6 +22,10 @@ public class School implements Serializable {
     @Column(name="name")
     private String name;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name="ip")
+    private String ip;
+
     public String getId() {
         return id;
     }
@@ -37,5 +40,13 @@ public class School implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 }
