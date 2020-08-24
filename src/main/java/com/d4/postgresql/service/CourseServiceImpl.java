@@ -1,7 +1,6 @@
 package com.d4.postgresql.service;
 
 import com.d4.postgresql.entities.Course;
-import com.d4.postgresql.entities.School;
 import com.d4.postgresql.repository.CourseRepository;
 import com.d4.postgresql.repository.SchoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,8 +69,7 @@ public class CourseServiceImpl implements CourseService {
         Optional<Course> courseOptional = courseRepository.findById(id);
         if(courseOptional.isPresent()){
             return new Course(courseOptional.get());
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found with id " + id);
         }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found with id " + id);
     }
 }
